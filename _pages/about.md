@@ -10,6 +10,7 @@ profile:
   image_circular: false
 
 selected_papers: true
+presentations: true
 social: true
 
 announcements:
@@ -29,10 +30,3 @@ My research sits at the intersection of communication, computational social scie
 
 I have published 10+ papers in both Chinese and English journals, including peer-referred SSCI journals such as *Public Relations Review*, *Media and Communication*, and *Communication and the Public*, as well as certain CSSCI journals such as *Chinese Journal of Journalism & Communication*. 
 
-<br>
-
----
-
-## Presentations
-
-- Wang, Z., & Liu, S.* (2025, July 13–17). **Icing on the Cake or Timely Assistance: A Quasi-Experimental Design regarding Interaction Willingness under Emotional Contagion on Social Media** [Conference presentation]. *IAMCR 2025*, Singapore. *Corresponding author.*

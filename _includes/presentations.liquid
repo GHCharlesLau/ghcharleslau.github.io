@@ -1,0 +1,18 @@
+<div class="publications">
+  <ol class="bibliography">
+    {% for pres in site.data.presentations %}
+    <li>
+      <div class="pub-row">
+        <div class="title">{{ pres.title }}</div>
+        <div class="author">{{ pres.authors }}</div>
+        <div class="periodical">
+          <em>{{ pres.venue }}</em>, {{ pres.location }} · {{ pres.date }}, {{ pres.year }}
+          {% if pres.note %}
+            <span class="note">({{ pres.note }})</span>
+          {% endif %}
+        </div>
+      </div>
+    </li>
+    {% endfor %}
+  </ol>
+</div>

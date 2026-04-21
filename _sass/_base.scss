@@ -1542,9 +1542,38 @@ html[data-theme="dark"] .card:hover {
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
 }
 
-/* Inter font override */
+/* Self-hosted Inter font (eliminates Google Fonts dependency) */
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/assets/fonts/inter-regular.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("/assets/fonts/inter-semibold.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("/assets/fonts/inter-bold.woff2") format("woff2");
+}
+
 body {
-  font-family: "Inter", "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/* Override jekyll-scholar .note default border-left */
+.publications .note {
+  border-left: none !important;
+  padding-left: 0 !important;
+  margin-left: 0.25rem;
 }
 
 /* Accent-colored divider on about page */

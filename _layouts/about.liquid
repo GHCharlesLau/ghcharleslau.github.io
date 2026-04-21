@@ -59,6 +59,12 @@ layout: default
       {% include latest_posts.liquid %}
     {% endif %}
 
+    <!-- Presentations -->
+    {% if page.presentations %}
+      <h2>Presentations</h2>
+      {% include presentations.liquid %}
+    {% endif %}
+
     <!-- Selected papers -->
     {% if page.selected_papers %}
       <h2>
