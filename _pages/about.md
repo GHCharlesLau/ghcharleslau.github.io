@@ -27,7 +27,9 @@ I am a PhD candidate in Communication at [The Chinese University of Hong Kong (C
 
 My research sits at the intersection of communication, computational social science, and digital media. I am particularly interested in Human-AI Communication, computational social science, public opinion, and digital journalism.
 
-I have published 10+ papers in both Chinese and English journals, including peer-referred SSCI journals such as *Public Relations Review*, *Media and Communication*, and *Communication and the Public*, as well as certain CSSCI journals such as *Chinese Journal of Journalism & Communication*.
+I have published 10+ papers in both Chinese and English journals, including peer-referred SSCI journals such as *Public Relations Review*, *Media and Communication*, and *Communication and the Public*, as well as certain CSSCI journals such as *Chinese Journal of Journalism & Communication*. 
+
+<br>
 
 ---
 
