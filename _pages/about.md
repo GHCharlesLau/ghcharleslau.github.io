@@ -1,34 +1,36 @@
 ---
 layout: about
-title: about
+title: Home
 permalink: /
-subtitle: <a href='#'>Affiliations</a>. Address. Contacts. Motto. Etc.
+subtitle: PhD Candidate in Communication at <a href='https://www.cuhk.edu.hk'>CUHK</a>. Fellow of CUHK CSS Lab.
 
 profile:
   align: right
-  image: prof_pic.jpg
-  image_circular: false # crops the image to make it circular
-  more_info: >
-    <p>555 your office number</p>
-    <p>123 your address street</p>
-    <p>Your City, State 12345</p>
+  image: myphoto_2025.jpg
+  image_circular: false
 
-selected_papers: true # includes a list of papers marked as "selected={true}"
-social: true # includes social icons at the bottom of the page
+selected_papers: true
+social: true
 
 announcements:
-  enabled: true # includes a list of news items
-  scrollable: true # adds a vertical scroll bar if there are more than 3 news items
-  limit: 5 # leave blank to include all the news in the `_news` folder
+  enabled: false
+  scrollable: true
+  limit: 5
 
 latest_posts:
-  enabled: true
-  scrollable: true # adds a vertical scroll bar if there are more than 3 new posts items
-  limit: 3 # leave blank to include all the blog posts
+  enabled: false
+  scrollable: true
+  limit: 3
 ---
 
-Write your biography here. Tell the world about yourself. Link to your favorite [subreddit](http://reddit.com). You can put a picture in, too. The code is already in, just name your picture `prof_pic.jpg` and put it in the `img/` folder.
+I am a PhD candidate in Communication at [The Chinese University of Hong Kong (CUHK)](https://www.cuhk.edu.hk/), and a fellow at the [Computational Social Science Laboratory (CSSL)](https://www.com.cuhk.edu.hk/). Prior to joining CUHK, I received my Master's degree from [Beijing Normal University (BNU)](https://www.bnu.edu.cn/) and my Bachelor's degrees from [Central University of Finance and Economics (CUFE)](https://www.cufe.edu.cn/).
 
-Put your address / P.O. box / other info right below your picture. You can also disable any of these elements by editing `profile` property of the YAML header of your `_pages/about.md`. Edit `_bibliography/papers.bib` and Jekyll will render your [publications page](/al-folio/publications/) automatically.
+My research sits at the intersection of communication, computational social science, and digital media. I am particularly interested in Human-AI Communication, computational social science, public opinion, and digital journalism.
 
-Link to your social media connections, too. This theme is set up to use [Font Awesome icons](https://fontawesome.com/) and [Academicons](https://jpswalsh.github.io/academicons/), like the ones below. Add your Facebook, Twitter, LinkedIn, Google Scholar, or just disable all of them.
+I have published 10+ papers in both Chinese and English journals, including peer-referred SSCI journals such as *Public Relations Review*, *Media and Communication*, and *Communication and the Public*, as well as certain CSSCI journals such as *Chinese Journal of Journalism & Communication*.
+
+---
+
+## Presentations
+
+- Wang, Z., & Liu, S.* (2025, July 13–17). **Icing on the Cake or Timely Assistance: A Quasi-Experimental Design regarding Interaction Willingness under Emotional Contagion on Social Media** [Conference presentation]. *IAMCR 2025*, Singapore. *Corresponding author.*

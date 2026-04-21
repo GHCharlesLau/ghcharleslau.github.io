@@ -249,8 +249,15 @@ ul.task-list input[type="checkbox"] {
 .navbar {
   box-shadow: none;
   border-bottom: 1px solid var(--global-divider-color);
-  background-color: var(--global-bg-color);
-  opacity: 0.95;
+  background-color: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  opacity: 1;
+}
+
+html[data-theme="dark"] .navbar,
+html[data-theme-setting="dark"] .navbar {
+  background-color: rgba(28, 28, 29, 0.75);
 }
 
 .navbar .dropdown-menu,
@@ -508,13 +515,22 @@ footer.fixed-bottom {
 }
 
 footer.sticky-bottom {
-  border-top: 1px solid var(--global-divider-color);
-  padding-top: 40px;
-  padding-bottom: 40px;
-  font-size: 0.9rem;
+  border-top: none;
+  padding-top: 20px;
+  padding-bottom: 10px;
+  font-size: 0.75rem;
+  color: var(--global-text-color-light);
 
   .container {
     text-align: center;
+  }
+
+  a {
+    color: var(--global-text-color-light);
+
+    &:hover {
+      color: var(--global-theme-color);
+    }
   }
 }
 
@@ -1495,4 +1511,107 @@ figure.cover {
 
 mjx-container[jax="CHTML"][display="true"] {
   overflow-x: auto;
+}
+
+/* =============================================================================
+   Custom futuristic enhancements
+   ============================================================================= */
+
+/* Profile image subtle shadow */
+.profile {
+  img {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+  }
+}
+
+html[data-theme="dark"] .profile img {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Card hover lift effect */
+.card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  }
+}
+
+html[data-theme="dark"] .card:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+/* Inter font override */
+body {
+  font-family: "Inter", "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+/* Accent-colored divider on about page */
+.about-header {
+  border-bottom: 2px solid var(--global-theme-color);
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Profile image — extra right margin to separate from text */
+.profile {
+  margin-left: 1.5rem !important;
+}
+
+/* Social icons inside profile card (below photo) */
+.profile-social {
+  display: flex;
+  justify-content: flex-start;
+  gap: 0.6rem;
+  margin-top: 0.8rem;
+  flex-wrap: wrap;
+
+  a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.8rem;
+    height: 1.8rem;
+    color: var(--global-text-color-light);
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: var(--global-theme-color);
+      text-decoration: none;
+    }
+
+    i::before {
+      font-size: 1rem;
+    }
+
+    svg {
+      width: 1rem;
+      height: 1rem;
+    }
+  }
+}
+
+/* Progress bar accent color override */
+#progress {
+  --color: var(--global-theme-color);
+}
+
+/* Smoother scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Home page layout: section spacing & dividers */
+.post {
+  h2 {
+    margin-top: 2rem;
+    margin-bottom: 1.2rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 1px solid var(--global-divider-color);
+  }
+
+  .publications {
+    margin-top: 0.5rem;
+  }
 }
