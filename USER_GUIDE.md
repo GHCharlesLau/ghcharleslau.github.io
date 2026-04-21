@@ -12,7 +12,7 @@ Personal academic website of Shaoqiang (Charles) Liu, built with [Jekyll](https:
 docker compose pull        # Pull latest image
 docker compose up          # Start dev server at http://localhost:8080
 docker compose down        # Stop server
-docker compose restart     # Restart after config/code changes
+docker compose restart     # Restart after SCSS changes (CSS needs recompile)
 ```
 
 ### Local Development (Ruby)
@@ -30,7 +30,7 @@ bundle exec jekyll build   # Production build to _site/
 ## Site Structure
 
 ```
-├── _config.yml              # Global config (navbar, fonts, features, colors)
+├── _config.yml              # Global config (navbar, features, colors)
 ├── _pages/
 │   ├── about.md             # Home page (permalink: /)
 │   ├── blog.md              # Blog listing
@@ -38,23 +38,23 @@ bundle exec jekyll build   # Production build to _site/
 │   ├── projects.md          # Portfolio projects
 │   ├── cv.md                # CV page
 │   └── news.md              # News/announcements archive
-├── _posts/                  # Blog posts (filename: YYYY-MM-DD-title.md)
-├── _projects/               # Project cards (markdown)
-├── _news/                   # News items (markdown)
-├── _bibliography/
-│   └── papers.bib           # Publications (BibTeX, used by jekyll-scholar)
 ├── _data/
 │   ├── socials.yml          # Social media links & usernames
-│   └── cv.yml               # CV data (YAML fallback)
+│   ├── cv.yml               # CV data (YAML fallback)
+│   └── presentations.yml    # Conference presentations
+├── _bibliography/
+│   └── papers.bib           # Publications (BibTeX, used by jekyll-scholar)
 ├── assets/
 │   ├── json/resume.json     # CV data (JSON, primary source)
 │   ├── img/                 # Images (profile, thumbnails)
-│   └── pdf/                 # PDF files (CV download)
+│   ├── pdf/                 # PDF files (CV download)
+│   └── fonts/               # Self-hosted Inter font (WOFF2)
 ├── _includes/               # Reusable Liquid components
 │   ├── header.liquid        # Navbar
 │   ├── footer.liquid        # Footer
 │   ├── social.liquid        # Social icon renderer
-│   └── ...
+│   ├── presentations.liquid # Presentations section renderer
+│   └── selected_papers.liquid
 ├── _layouts/                # Page layouts (about, default, cv, page)
 ├── _sass/                   # SCSS stylesheets
 │   ├── _variables.scss      # Color variables
@@ -79,7 +79,7 @@ Edit `_data/socials.yml`. Supported keys:
 | `github_username` | GitHub handle | `GHCharlesLau` |
 | `instagram_id` | Instagram handle | `username` |
 | `x_username` | X/Twitter handle (without @) | `Charles_Anan` |
-| `xiaohongshu_id` | Xiaohongshu user ID | `2745147159` |
+| `xiaohongshu_id` | Xiaohongshu user ID | `61191fe0000000000101f909` |
 | `scholar_userid` | Google Scholar ID | `your_scholar_id` |
 | `linkedin_username` | LinkedIn handle | `username` |
 | `orcid_id` | ORCID ID | `0000-0000-0000-0000` |
@@ -107,6 +107,22 @@ Edit `_data/socials.yml`. Supported keys:
 ```
 
 3. If you want it shown on the Home page, set `selected={true}`.
+
+### Add a Conference Presentation
+
+Edit `_data/presentations.yml`, add a new entry:
+
+```yaml
+- authors: "Last, F., & Liu, S.*"
+  year: 2025
+  title: "Your Presentation Title"
+  venue: "Conference Name 2025"
+  location: City, Country
+  date: "Month Day–Day"
+  note: "Corresponding author"
+```
+
+The `note` field is optional. Presentations are displayed on the Home page in the same style as Selected Publications.
 
 ### Add a Blog Post
 
@@ -155,14 +171,6 @@ Supported formats: `.jpg`, `.jpeg`, `.png`. WebP versions are auto-generated.
 cv_pdf: /assets/pdf/cv.pdf
 ```
 
-### Add a Conference Presentation
-
-Edit `_pages/about.md`, find the "Presentations" section, and add entries:
-
-```markdown
-- **"Your Presentation Title"** — *Conference Name*, Year, Location.
-```
-
 ---
 
 ## Customization
@@ -178,7 +186,11 @@ To change the accent color, update `$emerald-color` in `_variables.scss` and the
 
 ### Font
 
-Currently using **Inter**. To change, edit `google_fonts` in `_config.yml` and the `font-family` in `_sass/_base.scss`.
+The site uses **Inter** font, self-hosted in `assets/fonts/` (WOFF2 format). No external Google Fonts dependency — this ensures consistent rendering across all environments including China.
+
+To change the font:
+1. Replace the WOFF2 files in `assets/fonts/`
+2. Update the `@font-face` declarations in `_sass/_base.scss`
 
 ### Dark Mode
 
@@ -189,14 +201,8 @@ Controlled by `enable_darkmode: true` in `_config.yml`. The toggle button appear
 | Setting | File | Description |
 |---------|------|-------------|
 | `navbar_fixed: true` | `_config.yml` | Sticky navbar at top |
-| `enable_navbar_social: false` | `_config.yml` | Social icons in navbar (currently off; socials shown at page bottom instead) |
 | `search_enabled: true` | `_config.yml` | Ctrl+K search |
 | `enable_darkmode: true` | `_config.yml` | Light/dark toggle |
-| `enable_progressbar: false` | `_config.yml` | Scroll progress bar (currently off) |
-
-### Footer
-
-The footer is inline (not fixed) and displays in grey small text at the end of the Home page. Controlled by `footer_fixed: false` in `_config.yml`. Edit `footer_text` in `_config.yml` to change footer content.
 
 ---
 
@@ -223,5 +229,6 @@ Your site will be live at `https://ghcharleslau.github.io` within a few minutes.
 | YAML parse error | Check for unquoted colons in values (e.g., use `"BNU, Instructor: Dr. Li"`) |
 | Image not loading | Ensure file is in `assets/img/` and filename matches the reference |
 | BibTeX not rendering | Check `.bib` syntax; ensure `selected={true}` for Home page display |
+| Font looks different locally vs deployed | Inter is now self-hosted — clear browser cache with Ctrl+Shift+R |
 | X/Twitter link broken | Remove `@` prefix from `x_username` in `socials.yml` |
 | Docker won't start | Ensure Docker Desktop is running; try `docker compose down && docker compose up` |
